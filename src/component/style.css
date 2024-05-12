@@ -1,0 +1,35 @@
+/* Global Styles */
+:root {
+  --primary-color: #007bff; /* Primary color for buttons */
+  --btn-hover-color: #0056b3; /* Hover color for buttons */
+}
+
+html,
+body,
+#root {
+  min-height: 100vh;
+}
+.container2 {
+  height: 100%;
+  max-width: 80%;
+  margin: 0 auto;
+  padding: 0px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+}
+
+.grid2 {
+  height: calc(100vh - 250px);
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: stretch;
+  gap: 30px;
+}
+
+.grid2 img {
+  border-radius: 30px;
+  object-fit: cover;
+  cursor: pointer;
+}
+

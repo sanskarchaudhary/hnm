@@ -1,8 +1,50 @@
-import React from "react";
+import React, { useState, useRef, useEffect } from "react";
+import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
+
+const initialOptions = {
+  "client-id":
+    "AdmGE3X9dxnJJOF-hp4APkLMt2M40xCa_Sha7PVnXwid0gmnsIsPsDjaH1_L3w9G6yi-lhW0CSMWAuaJ",
+  currency: "USD",
+  intent: "capture",
+};
+
+const paypalButtonConfig = {
+  createOrder: (data, actions) => {
+    return actions.order.create({
+      purchase_units: [
+        {
+          amount: {
+            value: "0.01",
+          },
+        },
+      ],
+    });
+  },
+  onApprove: (data, actions) => {
+    return actions.order.capture().then((details) => {
+      alert(`Transaction completed by ${details.payer.name.given_name}`);
+    });
+  },
+};
 
 export default function Donate() {
+  const [loading, setLoading] = useState(true);
+  const paypalButtonContainer = useRef(null);
+
+  useEffect(() => {
+    if (window.paypal) {
+      setLoading(false);
+      window.paypal
+        .Buttons(paypalButtonConfig)
+        .render(paypalButtonContainer.current);
+    }
+  }, []);
+
   return (
-    <div className="flex flex-col w-full items-center my-10 md:my-14" id="donate">
+    <div
+      className="flex flex-col w-full items-center my-10 md:my-14"
+      id="donate"
+    >
       <div className="flex flex-col md:flex-row pt-10 justify-center items-center">
         <div className="w-full sm:w-6/12 md:w-4/12 flex justify-center items-center">
           <img src="/qr_mock.jpeg" alt="" className="w-8/12 lg:w-6/12" />
@@ -13,7 +55,11 @@ export default function Donate() {
             Remember that the happiest people are not those getting more, but
             those giving more.
           </p>
-          <img src="/qr.jpg" alt="" className="rounded-sm w-6/12 sm:w-4/12 md:w-5/12 lg:w-3/12" />
+          <img
+            src="/qr.jpg"
+            alt=""
+            className="rounded-sm w-6/12 sm:w-4/12 md:w-5/12 lg:w-3/12"
+          />
           <a
             href="/qr.jpg"
             className="flex justify-center items-center p-3 px-6 w-max bg-indigo-500 text-white font-semibold rounded-full shadow-lg hover:shadow-indigo-500/30 hover:scale-[1.02] transition-all ease-in-out duration-100 sm:scale-100 m-1.5"
@@ -39,6 +85,19 @@ export default function Donate() {
           </a>
         </div>
       </div>
+      <div className="mt-4" ></div>
+      <PayPalScriptProvider options={initialOptions}>
+        <PayPalButtons
+          style={{
+            layout: "horizontal",
+            color: "gold",
+            shape: "pill",
+            label: "paypal",
+          }}
+          {...paypalButtonConfig}
+        />
+      </PayPalScriptProvider>
+      <script src="https://www.paypal.com/sdk/js?client-id=AdmGE3X9dxnJJOF-hp4APkLMt2M40xCa_Sha7PVnXwid0gmnsIsPsDjaH1_L3w9G6yi-lhW0CSMWAuaJ"></script>
     </div>
   );
 }

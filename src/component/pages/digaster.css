@@ -1,0 +1,42 @@
+.image-container {
+  display: flex; /* This will arrange the image and the text side by side */
+  justify-content: space-between; /* This will put as much space as possible between the image and the text */
+  align-items: center;
+  width: 100%; /* This will make each image container take up the full width of the .image-explainer */
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+.image-container img {
+  border-radius: 30px;
+  width: 55%; /* This will make the image take up half of the width of the .image-container */
+  height: auto;
+  margin:  0px 0px 250px 0px;
+}
+
+.image-container .head
+ {
+  width: 100%; /* This will make the h1 and p take up the full width of the .image-container */
+  margin:  0px 0px 50px 0px;
+}
+.image-container .paragraph {
+  width: 100%; /* This will make the h1 and p take up the full width of the .image-container */
+  margin:  0px 0px 230px 0px; /* This will add a 20px gap between the p tag and the image */
+  text-align: justify; /* This will justify the text */
+}
+
+.h1-p-img {
+  display: flex; /* This will arrange the image and the text side by side */
+  flex-direction: column;
+  gap: 20px;
+}
+.paragraph {
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: #000;
+    margin:  0px 0px 150px 0px;
+
+  padding: 10px;
+  text-align: justify;
+ 
+}
