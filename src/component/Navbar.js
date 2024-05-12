@@ -27,7 +27,7 @@ export default function Navbar() {
                 <ul className="flex items-center hidden space-x-8 lg:flex">
                     <li>
                         <NavLink to={"/stats"} className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400">
-                            Statistics
+                            Projects
                         </NavLink>
                     </li>
                     <li>

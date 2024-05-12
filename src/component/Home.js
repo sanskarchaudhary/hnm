@@ -3,8 +3,8 @@ import React from 'react';
 import Hero from "../component/Hero";
 import Testimonials from "../component/Testimonials";
 import Footer from "../component/Footer";
-
-// import Carousal from "../component/Carousal";
+import Co from "../component/co"
+//import Carousal from "../component/Carousal";
 
 
 function Home() {
@@ -15,7 +15,8 @@ function Home() {
           <main className="">
             
               <Hero />
-              {/* <Carousal /> */}
+              <Co/>
+          {/* <Carousal /> */}
               <Testimonials />
           </main>
 
