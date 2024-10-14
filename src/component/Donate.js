@@ -7,14 +7,13 @@ const initialOptions = {
   currency: "USD",
   intent: "capture",
 };
-
 const paypalButtonConfig = {
   createOrder: (data, actions) => {
     return actions.order.create({
       purchase_units: [
         {
           amount: {
-            value: "0.01",
+            value: "50.00",
           },
         },
       ],
@@ -85,7 +84,7 @@ export default function Donate() {
           </a>
         </div>
       </div>
-      <div className="mt-4" ></div>
+      <div class="mt-4" ></div>
       <PayPalScriptProvider options={initialOptions}>
         <PayPalButtons
           style={{

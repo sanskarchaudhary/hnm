@@ -37,9 +37,7 @@
     "swiper": "^11.0.7",
     "tar": "^6.2.1",
     "tar-pack": "^3.4.1",
-    "web-vitals": "^2.1.4",
-    "webpack-dev-middleware": "^5.3.4",
-    "webpack-dev-server": "^5.0.4",
+    "web-vitals": "^4.2.3",
     "yargs-parser": "^13.1.2"
   },
   "scripts": {
